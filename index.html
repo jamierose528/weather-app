@@ -8,9 +8,36 @@
     <title>Jamie's Weather App</title>
   </head>
   <body>
-      <header>
-          <h1 id="title">Jamie's Weather App</h1>
-      </header>
+    <header>
+      <h1 id="title">Weather Dashboard</h1>
+    </header>
+    <aside id="sidebar">
+      <h2 id="sidebar-title">Search for a City</h2>
+      <div id="search-input-container">
+        <input id="search-bar" />
+        <button id="search-button">Search</button>
+      </div>
+      <section id="city-list">
+        <ul id="cities"></ul>
+      </section>
+    </aside>
+    <main id="weather-body>">
+      <section id="location">
+        <h2 id="location-name-date"></h2>
+        <div id="location-info">
+          <ul id="info-list">
+            <li id="temp"></li>
+            <li id="wind"></li>
+            <li id="humidity"></li>
+            <li id="uv-index"></li>
+          </ul>
+        </div>
+      </section>
+      <section id="5-day-forcast">
+        <h3 id="forecast">5-Day Forecast:</h3>
+        <div id="card-container"></div>
+      </section>
+    </main>
     <script src="assets/js/java.js"></script>
   </body>
 </html>
