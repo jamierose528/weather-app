@@ -1,0 +1,23 @@
+header {
+  font-family: "Smooch", cursive;
+  text-align: center;
+  font-size: 40px;
+  background-color: rgb(167, 230, 230);
+}
+
+h2 {
+  font-family: "Smooch", cursive;
+  text-align: center;
+  font-size: 40px;
+}
+
+#sidebar {
+  margin-right: 20px;
+  padding: 20px;
+  clear: both;
+  float: left;
+  width: 20%;
+  height: 100%;
+  background-color: #2589bd;
+  border-radius: 17px;
+}
