@@ -31,6 +31,11 @@ fetch(
       let cardContainer = $("#card-container");
       let dateEl = $("<h4>").text(moment.unix(day.dt).format("MMM Do"));
       cardContainer.append(dateEl);
+      let weatherIcon = $("<img>", {
+        src: `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`,
+        class: "weather-icon",
+      });
+      cardContainer.append(weatherIcon);
       let tempEl = $("<p>").text("Temp: " + day.temp.day + "°F");
       cardContainer.append(tempEl);
       let windEl = $("<p>").text("Wind: " + day.wind_speed + "mph");
