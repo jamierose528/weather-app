@@ -21,3 +21,8 @@ h2 {
   background-color: #2589bd;
   border-radius: 17px;
 }
+
+#current-weather-icon {
+  height: 100px;
+  width: 100px;
+}
