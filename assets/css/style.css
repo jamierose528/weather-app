@@ -1,14 +1,43 @@
-header {
-  font-family: "Smooch", cursive;
-  text-align: center;
-  font-size: 40px;
-  background-color: rgb(167, 230, 230);
+:root {
+  --black: rgb(0, 0, 0);
+  --gold: rgb(233, 202, 27);
+  --white: #ffffff;
 }
 
-h2 {
-  font-family: "Smooch", cursive;
+body {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+header {
+  font-family: "Pinyon Script", cursive;
   text-align: center;
   font-size: 40px;
+  color: var(--gold);
+  background-color: var(--black);
+  padding: 15px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Pinyon Script", cursive;
+  text-align: center;
+  font-size: 40px;
+  color: var(--gold);
+}
+
+h5 {
+  font-size: 20px;
+}
+
+card {
+  width: 20%;
+}
+
+.weather-icon {
+  height: 50%;
 }
 
 #sidebar {
@@ -17,9 +46,44 @@ h2 {
   clear: both;
   float: left;
   width: 20%;
-  height: 100%;
-  background-color: #2589bd;
-  border-radius: 17px;
+  height: 900px;
+  color: var(--gold);
+  background-color: var(--black);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--white);
+  margin: 2px;
+}
+
+#forecast {
+  border-bottom-style: solid;
+  border-bottom-color: var(--white);
+  border-bottom-width: 1px;
+}
+
+#location {
+  background-color: var(--black);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--white);
+  margin: 2px;
+}
+
+#location-info {
+  margin-left: 10px;
+}
+
+#card-container {
+  background-color: var(--black);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--white);
+  display: inline-flex;
+}
+
+#card-container.p {
+  display: flex;
+  flex-direction: row;
 }
 
 #current-weather-icon {
