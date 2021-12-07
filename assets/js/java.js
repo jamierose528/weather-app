@@ -7,6 +7,7 @@ if (localStorage.getItem("pastSearches")) {
   pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
 }
 
+// creates past searches list
 const searchList = () => {
   recentSearchList.empty();
   for (let i = 0; i < pastSearches.length; i++) {
@@ -20,6 +21,7 @@ const searchList = () => {
 
 searchList();
 
+// running the search through the APIs
 const weatherApp = (city) => {
   cardContainer.html("");
 
@@ -41,6 +43,8 @@ const weatherApp = (city) => {
       }
       console.log(data[0]);
       $("#location-name-date").text(data[0].name);
+
+      // add searches to local storage
       if (pastSearches.indexOf(data[0].name) === -1) {
         pastSearches.push(data[0].name);
         localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
@@ -59,6 +63,7 @@ const weatherApp = (city) => {
     })
     .then((data) => {
       console.log(data);
+      // make the main card with the weather information
       $("#current-weather-icon")
         .attr(
           "src",
