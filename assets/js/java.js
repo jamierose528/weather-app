@@ -1,11 +1,31 @@
 let cardContainer = $("#card-container");
+let pastSearches = [];
+let recentSearchList = $("#recents");
+const searchBarValue = $("#search-bar");
 
-const weatherApp = () => {
+if (localStorage.getItem("pastSearches")) {
+  pastSearches = JSON.parse(localStorage.getItem("pastSearches"));
+}
+
+const searchList = () => {
+  recentSearchList.empty();
+  for (let i = 0; i < pastSearches.length; i++) {
+    let li = $(`<li class="recent-search"> ${pastSearches[i]} </li> `);
+    recentSearchList.append(li);
+  }
+  $(".recent-search").on("click", function () {
+    weatherApp($(this).text());
+  });
+};
+
+searchList();
+
+const weatherApp = (city) => {
   cardContainer.html("");
-  const searchBarValue = $("#search-bar");
+
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
-      searchBarValue.val() +
+      city +
       "&appid=977cc3d092b336617ae6ce66a9d60dac"
   )
     .then((response) => {
@@ -21,6 +41,14 @@ const weatherApp = () => {
       }
       console.log(data[0]);
       $("#location-name-date").text(data[0].name);
+      if (pastSearches.indexOf(data[0].name) === -1) {
+        pastSearches.push(data[0].name);
+        localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
+        searchBarValue.val("");
+
+        searchList();
+      }
+
       return fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely,hourly&appid=977cc3d092b336617ae6ce66a9d60dac&units=imperial`
       );
@@ -71,12 +99,13 @@ const weatherApp = () => {
 // press enter to go to location
 const logKey = (e) => {
   if (e.code === "Enter") {
-    weatherApp();
+    weatherApp($("#search-bar").val());
   }
 };
 
 $("#search-button").on("click", function () {
-  weatherApp();
+  console.log($("#search-bar").val());
+  weatherApp($("#search-bar").val());
 });
 
 $("#search-bar").keypress(logKey);
