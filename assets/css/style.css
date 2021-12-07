@@ -40,6 +40,24 @@ card {
 
 .recent-search {
   color: var(--white);
+  margin-top: 20px;
+  font-size: 20px;
+  border-style: solid;
+  border-color: var(--white);
+  border-width: 1px;
+  border-radius: 17px;
+  text-align: center;
+}
+
+.recent-search:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.list-item {
+  margin-right: 90px;
 }
 
 #sidebar {
@@ -55,6 +73,11 @@ card {
   border-style: solid;
   border-color: var(--white);
   margin: 2px;
+}
+
+#search-bar {
+  border-radius: 17px;
+  padding-left: 15px;
 }
 
 #forecast {
@@ -86,6 +109,11 @@ card {
 #card-container.p {
   display: flex;
   flex-direction: row;
+}
+
+#info-list {
+  display: flex;
+  font-size: 20px;
 }
 
 #current-weather-icon {
