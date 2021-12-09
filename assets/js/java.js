@@ -26,7 +26,7 @@ const weatherApp = (city) => {
   cardContainer.html("");
 
   fetch(
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
       city +
       "&appid=977cc3d092b336617ae6ce66a9d60dac"
   )
