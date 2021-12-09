@@ -31,7 +31,6 @@ const weatherApp = (city) => {
       "&appid=977cc3d092b336617ae6ce66a9d60dac"
   )
     .then((response) => {
-      console.log(response);
       if (response.ok) return response.json();
     })
 
@@ -41,7 +40,6 @@ const weatherApp = (city) => {
         searchBarValue.val("");
         throw "Invalid City Name.";
       }
-      console.log(data[0]);
       $("#location-name-date").text(data[0].name);
 
       // add searches to local storage
@@ -62,7 +60,6 @@ const weatherApp = (city) => {
       if (response.ok) return response.json();
     })
     .then((data) => {
-      console.log(data);
       // make the main card with the weather information
       $("#current-weather-icon")
         .attr(
@@ -109,7 +106,6 @@ const logKey = (e) => {
 };
 
 $("#search-button").on("click", function () {
-  console.log($("#search-bar").val());
   weatherApp($("#search-bar").val());
 });
 
